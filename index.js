@@ -31,7 +31,7 @@ const cronJob = async function () {
   await prepareMessage(PROJECT_NAME).then((res) => {
     bot.sendMessage(CHAT_ID, res, {
       parse_mode: 'HTML',
-      disable_web_page_preview: true,
+      disable_notification: true,
     });
   });
 };
