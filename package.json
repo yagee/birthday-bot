@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "author": {
+    "name": "Roman Ryzhikov",
+    "email": "github@yagee.ru"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.10",
+    "dotenv": "^16.3.1",
+    "google-auth-library": "^9.2.0",
+    "google-spreadsheet": "^4.1.1",
+    "node-cron": "^3.0.3",
+    "node-jq": "^4.2.2",
+    "node-telegram-bot-api": "^0.64.0"
+  }
+}
