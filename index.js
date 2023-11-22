@@ -31,6 +31,7 @@ const cronJob = async function () {
   await prepareMessage(PROJECT_NAME).then((res) => {
     bot.sendMessage(CHAT_ID, res, {
       parse_mode: 'HTML',
+      disable_web_page_preview: true,
     });
   });
 };
@@ -62,6 +63,8 @@ bot.onText(/\/update/, async (msg) => {
 
 bot.onText(/\/msg/, async (msg) => {
   await prepareMessage(PROJECT_NAME).then((res) => {
-    bot.sendMessage(msg.chat.id, res);
+    bot.sendMessage(msg.chat.id, res, {
+      disable_notification: true,
+    });
   });
 });
