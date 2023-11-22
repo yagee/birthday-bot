@@ -54,14 +54,14 @@ bot.onText(/\/send/, () => {
   cronJob();
 });
 
-bot.onText(/\/update/, async () => {
+bot.onText(/\/update/, async (msg) => {
   await updateBirthdays().then((res) => {
-    bot.sendMessage(CHAT_ID, res);
+    bot.sendMessage(msg.chat.id, res);
   });
 });
 
-bot.onText(/\/msg/, async () => {
+bot.onText(/\/msg/, async (msg) => {
   await prepareMessage(PROJECT_NAME).then((res) => {
-    bot.sendMessage(CHAT_ID, res);
+    bot.sendMessage(msg.chat.id, res);
   });
 });
