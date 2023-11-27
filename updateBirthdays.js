@@ -32,12 +32,12 @@ const updateBirthdays = async function () {
     const doc = new GoogleSpreadsheet(process.env['GOOGLE_SPREADSHEET'], jwt);
 
     await doc.loadInfo(); // loads document properties and worksheets
-    const otherSheet = doc.sheetsById[0]; // accessible via ID if you already know it
+    const otherSheet = doc.sheetsById[process.env['GOOGLE_SHEET_ID']]; // accessible via ID if you already know it
 
     // read rows
-    const qvantRows = await otherSheet.getRows(); // can pass in { limit, offset }
+    const sheetRows = await otherSheet.getRows(); // can pass in { limit, offset }
 
-    const users = qvantRows.map((element) => {
+    const users = sheetRows.map((element) => {
       const day = parseInt(element.get('day'), 10);
       const month = parseInt(element.get('month'), 10);
       const dayNumber = dayjs(`${month} ${day}`, 'M D').dayOfYear();
