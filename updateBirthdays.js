@@ -32,6 +32,7 @@ const updateBirthdays = async function () {
     const doc = new GoogleSpreadsheet(process.env['GOOGLE_SPREADSHEET'], jwt);
 
     await doc.loadInfo(); // loads document properties and worksheets
+
     const otherSheet = doc.sheetsById[process.env['GOOGLE_SHEET_ID']]; // accessible via ID if you already know it
 
     // read rows
