@@ -29,10 +29,14 @@ const CRON_SEND_SCHEDULE = '0 6 * * 1'; // At 06:00 on Monday.
 
 const cronJob = async function () {
   await prepareMessage(PROJECT_NAME).then((res) => {
-    bot.sendMessage(CHAT_ID, res, {
-      parse_mode: 'HTML',
-      disable_notification: true,
-    });
+    if (res) {
+      bot.sendMessage(CHAT_ID, res, {
+        parse_mode: 'HTML',
+        disable_notification: true,
+      });
+    } else {
+      console.log('no birthdays this week');
+    }
   });
 };
 
