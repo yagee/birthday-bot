@@ -64,7 +64,7 @@ const prepareMessage = async function (PROJECT_NAME) {
     const people = JSON.parse(jsonData);
 
     // Get the current date
-    const today = dayjs('2023-11-27');
+    const today = dayjs();
     const currentDayOfWeek = today.day();
 
     // Calculate the start and end dates of the next week
